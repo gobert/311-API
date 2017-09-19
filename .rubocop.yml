@@ -1,0 +1,42 @@
+require: rubocop-rspec
+
+Metrics/LineLength:
+  Max: 120
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/Encoding:
+  Enabled: false
+
+Layout/EmptyLineAfterMagicComment:
+  Exclude:
+    - db/schema.rb
+
+Layout/EmptyLinesAroundBlockBody:
+  Exclude:
+   - db/schema.rb
+
+Style/NumericLiterals:
+  Enabled: true
+  Exclude:
+    - db/schema.rb
+
+# Code quality metrics are disabled.
+# They are no MUST but they SHOULD be listened to
+# For me it's another responsability: so it should be handled by another tool.
+# I suggest: code climate
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Enabled: false
