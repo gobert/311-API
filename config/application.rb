@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 
 module HtCandidateExercise
   class Application < Rails::Application
-    # config.time_zone = 'Central Time (US & Canada)'
+    config.time_zone = 'Pacific Time (US & Canada)'
+    config.active_record.default_timezone = :utc
   end
 end

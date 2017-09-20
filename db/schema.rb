@@ -11,6 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20170919193122) do
+
+  create_table "cases", force: true do |t|
+    t.integer  "remote_id"
+    t.datetime "opened_at"
+    t.datetime "closed_at"
+    t.datetime "remote_updated_at"
+    t.string   "status"
+    t.text     "status_note"
+    t.string   "responsible_agency"
+    t.string   "service"
+    t.string   "service_subtype"
+    t.string   "service_details"
+    t.string   "address"
+    t.integer  "supervisor_district_id"
+    t.string   "neighborhood"
+    t.string   "police_district"
+    t.string   "source"
+    t.string   "media_url"
+    t.decimal  "lat",                    precision: 8, scale: 5
+    t.decimal  "lng",                    precision: 8, scale: 5
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
