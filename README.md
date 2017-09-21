@@ -25,7 +25,7 @@ GET /cases.json?near=37.77,-122.48&status=open&category=General%20Requests
 
 # Set up
 * Install ruby 2.3.3. For instance, using rvm: ``` rvm install 2.3.3```
-* Install MySQL, for instance, on OS X using homebrew: ```brew install mysql```
+* Install PostgreSQL, for instance, on OS X using homebrew: ```brew install postgresql```
 * Install gem bundler: ```gem install bundler --no-ri --no-rdoc```
 * Install dependencies: ```bundle install```
 * Create Database: ```bundle install```

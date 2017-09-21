@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20170921062852) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cases", force: true do |t|
     t.integer  "remote_id"
     t.datetime "opened_at"
