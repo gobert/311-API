@@ -1,0 +1,132 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://data.sfgov.org/resource/vw6y-z8j6.json?$limit=2&$offset=0&$order=requested_datetime%20DESC&$where=requested_datetime%20%3E%20%272017-09-20T09:44:28%27
+    body:
+      encoding: UTF-8
+      string: 'null'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      X-App-Token:
+      - dQ2wTKiOxem95rJa9LwluYwxN
+      User-Agent:
+      - soda-ruby/0.2.24 (Darwin/16.7.0; Ruby/2.3.3-p222)
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 21 Sep 2017 14:52:41 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Socrata-Requestid:
+      - czwv3whlbl05m5cwfhaqk5zbi
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - W/"5809754900bad83537713909dcc349bb"
+      Last-Modified:
+      - Wed, 20 Sep 2017 23:38:46 UTC
+      X-Soda2-Warning:
+      - X-SODA2-Fields, X-SODA2-Types, and X-SODA2-Legacy-Types are deprecated
+      X-Soda2-Fields:
+      - '["closed_date","status_description","address","service_name","service_request_id","source","status_notes","media_url","supervisor_district","long","point","agency_responsible","service_subtype","service_details","neighborhoods_sffind_boundaries","requested_datetime","updated_datetime","police_district","lat"]'
+      X-Soda2-Types:
+      - '["calendar_date","text","text","text","number","text","text","url","number","number","location","text","text","text","text","calendar_date","calendar_date","text","number"]'
+      X-Soda2-Legacy-Types:
+      - 'true'
+      Age:
+      - '23700'
+      X-Socrata-Region:
+      - aws-us-east-1-fedramp-prod
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        [ {
+          "status_description" : "Open",
+          "address" : "Not associated with a specific address",
+          "service_name" : "HSA",
+          "service_request_id" : "8042074",
+          "source" : "Phone",
+          "status_notes" : "Open",
+          "long" : "0",
+          "agency_responsible" : "HSA - Shelter Waitlist Queue",
+          "service_subtype" : "Shelter - Waitlist Request",
+          "requested_datetime" : "2017-09-20T09:45:00",
+          "updated_datetime" : "2017-09-20T09:46:19",
+          "lat" : "0"
+        }
+         ]
+    http_version: 
+  recorded_at: Thu, 21 Sep 2017 14:52:41 GMT
+- request:
+    method: get
+    uri: https://data.sfgov.org/resource/vw6y-z8j6.json?$limit=2&$offset=2&$order=requested_datetime%20DESC&$where=requested_datetime%20%3E%20%272017-09-20T09:44:28%27
+    body:
+      encoding: UTF-8
+      string: 'null'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      X-App-Token:
+      - dQ2wTKiOxem95rJa9LwluYwxN
+      User-Agent:
+      - soda-ruby/0.2.24 (Darwin/16.7.0; Ruby/2.3.3-p222)
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 21 Sep 2017 14:52:42 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Socrata-Requestid:
+      - 8y8xpb70nbbzcevujo2xs6tj8
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - W/"2fe7edc981245ef524b2d6bfb879b891"
+      Last-Modified:
+      - Wed, 20 Sep 2017 23:38:46 UTC
+      X-Soda2-Warning:
+      - X-SODA2-Fields, X-SODA2-Types, and X-SODA2-Legacy-Types are deprecated
+      X-Soda2-Fields:
+      - '["closed_date","status_description","address","service_name","service_request_id","source","status_notes","media_url","supervisor_district","long","point","agency_responsible","service_subtype","service_details","neighborhoods_sffind_boundaries","requested_datetime","updated_datetime","police_district","lat"]'
+      X-Soda2-Types:
+      - '["calendar_date","text","text","text","number","text","text","url","number","number","location","text","text","text","text","calendar_date","calendar_date","text","number"]'
+      X-Soda2-Legacy-Types:
+      - 'true'
+      Age:
+      - '6117'
+      X-Socrata-Region:
+      - aws-us-east-1-fedramp-prod
+    body:
+      encoding: ASCII-8BIT
+      string: "[ ]"
+    http_version: 
+  recorded_at: Thu, 21 Sep 2017 14:52:42 GMT
+recorded_with: VCR 3.0.3

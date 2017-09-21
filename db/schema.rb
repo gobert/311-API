@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170919193122) do
+ActiveRecord::Schema.define(version: 20170921062852) do
 
   create_table "cases", force: true do |t|
     t.integer  "remote_id"
@@ -35,5 +35,7 @@ ActiveRecord::Schema.define(version: 20170919193122) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "cases", ["opened_at"], name: "index_cases_on_opened_at", using: :btree
 
 end
