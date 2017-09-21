@@ -1,4 +1,6 @@
 class Case < ActiveRecord::Base
+  acts_as_mappable
+
   def self.create_from_socrata!(socrata_attrs)
     attrs = {
       'remote_id' => socrata_attrs['service_request_id'],
