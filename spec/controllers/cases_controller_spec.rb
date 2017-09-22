@@ -78,6 +78,14 @@ describe CasesController, type: :controller do
       it 'returns cases within 5 miles' do
         expect(result_id).to eq(sf_case.id)
       end
+
+      context 'with invalid attributes' do
+        let(:http_params) { Hash[near: '37,77 -122,48'] }
+
+        it 'returns status 400' do
+          expect(response.status).to eq(400)
+        end
+      end
     end
   end
 end

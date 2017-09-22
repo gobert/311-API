@@ -12,6 +12,7 @@ module HtCandidateExercise
     config.time_zone = 'Pacific Time (US & Canada)'
     config.active_record.default_timezone = :utc
 
+    config.paths.add 'app/presenters', eager_load: true
     config.autoload_paths << Rails.root.join('lib')
   end
 end
