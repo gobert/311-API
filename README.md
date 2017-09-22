@@ -1,62 +1,48 @@
-# HotelTonight
+# 311 API
 
-The HotelTonight coding exercise is used to gauge the level of Ruby on Rails
-experience for developer candidates.
+This is an API that displays the 311-cases of San Francisco. It was a technical test for a company. [Check the original spec](https://github.com/gobert/311-API/tree/8c8c14f76e2b8fc3eada93f95f38d4a45bdc3032).
 
-Feel free to use Ruby Gems, Google, Stack Overflow, or any other resources
-available in a day-to-day working environment.
+Usage example:
+```
+GET /cases.json
+# Returns all cases
 
-## Setup
+GET /cases.json?since=1398465719
+# Returns cases opened since UNIX timestamp 1398465719
 
-Fork this repository and checkout the code to your local development
-environment.
+GET /cases.json?status=open
+# Returns cases that are in open state.
 
-Run the Rake DB create and Migrate tasks:
+GET /cases.json?category=General%20Requests
+# Returns cases that belong to "General Requests" category
 
-    bin/rake db:create db:migrate
+GET /cases.json?near=37.77,-122.48
+# Returns cases that were created within 5 mile radius of lat=37.77 and lng=-122.48
 
-Run RSpec to verify test suite is working:
+GET /cases.json?near=37.77,-122.48&status=open&category=General%20Requests
+# API endpoint should be able to take any combination of GET params.
+```
 
-    rspec
+# Set up
+* Install ruby 2.3.3. For instance, using rvm: ``` rvm install 2.3.3```
+* Install MySQL, for instance, on OS X using homebrew: ```brew install mysql```
+* Install gem bundler: ```gem install bundler --no-ri --no-rdoc```
+* Install dependencies: ```bundle install```
+* Create Database: ```bundle install```
 
-## Submission
+# Run it
+* The first time, create the database: ``` bin/rake db:create ```
+* Ensure you run all the migrations: ```bin/rake db:migrate ```
+* Import new 311-cases: ```run rake cases:new:import```. Take care the first time it will import all the cases more than 2,5 million!
+* Start the webserver: ```bin/rails s```
 
-When code complete; please submit a [Pull Request][pr] to have your
-branch reviewed.
-
-## Coding Exercise
-
-__Task 1:__ Write a Rake task to import [311 case data][data] into a SQL database.
-The rake task should run everyday at 12:00am and import all new cases since last run.
-
-We use MySQL, so this project is setup accordingly, but if you're more comfortable with
-Postgres, you can change the DB config.
-
-Example usage of 311 case data API:
-https://data.sfgov.org/Service-Requests-311-/Case-Data-from-San-Francisco-311/vw6y-z8j6
-
-__Task 2:__ Implement JSON API endpoints to view and filter 311 case data for the
-following scenarios.
-
-    GET /cases.json
-    # Returns all cases
-
-    GET /cases.json?since=1398465719
-    # Returns cases opened since UNIX timestamp 1398465719
-
-    GET /cases.json?status=open
-    # Returns cases that are in open state.
-
-    GET /cases.json?category=General%20Requests
-    # Returns cases that belong to "General Requests" category
-
-    GET /cases.json?near=37.77,-122.48
-    # Returns cases that were created within 5 mile radius of lat=37.77 and lng=-122.48
-
-    GET /cases.json?near=37.77,-122.48&status=open&category=General%20Requests
-    # API endpoint should be able to take any combination of GET params.
-
-__Task 3:__ Include test/specs for Rake task and API.
-
-[pr]: https://help.github.com/articles/using-pull-requests
-[data]: http://data.sfgov.org/resource/vw6y-z8j6.json
+# Test suite
+On top of each commit, all tests must pass:
+```
+  bundle exec rspec -- spec/
+```
+# Check code syntax
+On top of each commit, no offenses must be detected
+```
+  bundle exec rubocop -- .
+```
