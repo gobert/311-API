@@ -31,6 +31,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     arel (5.0.1.20140414130214)
     awesome_print (1.8.0)
+    brakeman (3.7.2)
     builder (3.2.3)
     chronic (0.10.2)
     coderay (1.1.2)
@@ -136,6 +137,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  brakeman
   chronic
   geokit-rails
   pg (= 0.17.1)

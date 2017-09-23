@@ -46,3 +46,8 @@ On top of each commit, no offenses must be detected
 ```
   bundle exec rubocop -- .
 ```
+# Check security
+On top of each commit, you should make a static security analysis with:
+```
+  bundle exec brakeman
+```

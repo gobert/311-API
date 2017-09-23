@@ -13,6 +13,7 @@ group :doc do
 end
 
 group :development do
+  gem 'brakeman', require: false
   gem 'spring'
 end
 
