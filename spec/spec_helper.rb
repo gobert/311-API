@@ -17,3 +17,10 @@ VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   config.hook_into :webmock
 end
+
+# It's not define before rails 5
+# Delete me when we have rails > 5
+def file_fixture(fixture_name)
+  file = File.expand_path(fixture_name, RSpec.configuration.fixture_path)
+  File.new(file)
+end

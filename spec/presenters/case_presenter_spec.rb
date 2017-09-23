@@ -2,36 +2,8 @@ require 'spec_helper'
 
 describe CasePresenter do
   describe '#to_hash' do
-    let(:socrata_data) do
-      JSON.parse(
-        '{
-        "closed_date": "2017-09-12T17:19:00",
-        "status_description": "Closed",
-        "address": "1 HARRISON ST, SAN FRANCISCO, CA, 94105",
-        "service_name": "Street and Sidewalk Cleaning",
-        "service_request_id": "8008421",
-        "source": "Web",
-        "status_notes": "Serviced",
-        "supervisor_district": "6",
-        "long": "-122.3891",
-        "point": {
-        "latitude": "37.7891",
-        "human_address": "{\"address\":\"\",\"city\":\"\",\"state\":\"\",\"zip\":\"\"}",
-        "needs_recoding": false,
-        "longitude": "-122.389"
-        },
-        "agency_responsible": "Recology_Overflowing",
-        "service_subtype": "City_garbage_can_overflowing",
-        "service_details": "City_garbage_can_overflowing",
-        "neighborhoods_sffind_boundaries": "Rincon Hill",
-        "requested_datetime": "2017-09-12T09:43:25",
-        "updated_datetime": "2017-09-12T17:19:00",
-        "police_district": "SOUTHERN",
-        "lat": "37.78893"
-        }
-        '
-      )
-    end
+    let(:fixtures) { file_fixture('case.json').read }
+    let(:socrata_data) { JSON.parse(fixtures) }
     let(:case311) { Case.create_from_socrata!(socrata_data) }
     let(:case_presenter) { described_class.new(case311) }
 
