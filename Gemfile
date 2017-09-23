@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'geokit-rails'
 gem 'pg', '0.17.1'
 
-gem 'rails', '4.1.0'
+gem 'rails', '4.1.16'
 
 gem 'chronic'
 gem 'soda-ruby', require: 'soda'
