@@ -39,7 +39,7 @@ GET /cases.json?near=37.77,-122.48&status=open&category=General%20Requests
 # Test suite
 On top of each commit, all tests must pass:
 ```
-  bundle exec rspec -- spec/
+  bundle exec rake
 ```
 # Check code syntax
 On top of each commit, no offenses must be detected
