@@ -4,7 +4,7 @@ class CasesController < ApplicationController
 
   # GET /cases.json
   def index
-    render json: cases
+    render json: cases.map { |case311| CasePresenter.new(case311).to_hash }
   end
 
   private
