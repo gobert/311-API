@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'mysql2'
+gem 'mysql2', '0.3.21'
 gem 'rails', '4.1.0'
 
 group :doc do
