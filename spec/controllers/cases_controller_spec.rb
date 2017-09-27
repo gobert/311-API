@@ -10,6 +10,29 @@ describe CasesController, type: :controller do
 
     before { get :index, http_params.merge(format: 'json') }
 
+    context 'having pagination' do
+      let(:http_params)  { Hash[] }
+      let(:result)       { JSON.parse(response.body) }
+      let(:opening_time) { Time.now }
+
+      it 'limits to maximum 1_000' do
+        1_001.times { Case.create!(opened_at: 0) }
+
+        get :index, http_params.merge(format: 'json')
+
+        expect(result.size).to eq(1_000)
+      end
+
+      it 'order by opened_at ASC' do
+        Case.create(opened_at: opening_time)
+        Case.create(opened_at: opening_time - 1.hour)
+
+        get :index, http_params.merge(format: 'json')
+
+        expect(result.first['opened_at']).to eq((opening_time - 1.hour).utc.iso8601)
+      end
+    end
+
     describe 'having status=Open' do
       let(:result)      { JSON.parse(response.body) }
       let(:result_id)   { JSON.parse(response.body).first['id'] }

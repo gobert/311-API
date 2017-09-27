@@ -5,7 +5,7 @@ This is an API that displays the 311-cases of San Francisco. It was a technical 
 Usage example:
 ```
 GET /cases.json
-# Returns all cases
+# Returns the "latest" 1 000 cases
 
 GET /cases.json?since=1398465719
 # Returns cases opened since UNIX timestamp 1398465719
@@ -22,6 +22,16 @@ GET /cases.json?near=37.77,-122.48
 GET /cases.json?near=37.77,-122.48&status=open&category=General%20Requests
 # API endpoint should be able to take any combination of GET params.
 ```
+There are around 2,5 million records in the database. So the API never returns all the cases: it limits to the first 1 000 cases (ordered by ascending opened_at)
+
+You can paginate through the API with the parameter ```since``` like:
+
+| Page number | Query                        | First case opened at:  | Last case opened at  (UTC ISO8601) | Lat case opened at (UNIX timestamp) | Notes     |
+|-------------|------------------------------|------------------------|------------------------------------|-------------------------------------|-----------|
+| 1           | /cases.json                  | "2015-04-29T17:51:16Z" | "2015-04-30T18:24:16Z"             | 1430418256                          | 1st page  |
+| 2           | /cases.json?since=1430418256 | "2015-04-30T18:24:16Z" | "2015-05-01T19:46:34Z"             | 1430509594                          |           |
+| ...         | ...                          | ....                   | ....                               | ....                                |           |
+| n           | /case.json=since=1506516195  | "2017-09-27T12:42:48Z" | "2017-09-27T12:42:48Z"             | 1506516195                          | Last page |
 
 # Set up
 * Install ruby 2.3.3. For instance, using rvm: ``` rvm install 2.3.3```

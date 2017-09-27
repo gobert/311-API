@@ -10,7 +10,7 @@ class CasesController < ApplicationController
   private
 
   def cases
-    case_query = Case
+    case_query = Case.order("opened_at ASC").limit(1_000)
 
     case_query = case_query.where(status: case_params[:status]) if case_params[:status].present?
     case_query = case_query.where(service: case_params[:category]) if case_params[:category].present?
@@ -25,7 +25,7 @@ class CasesController < ApplicationController
       case_query = case_query.where("opened_at >= ?", since)
     end
 
-    case_query.all
+    case_query
   end
 
   def close_to
