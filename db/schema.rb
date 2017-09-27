@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170921062852) do
+ActiveRecord::Schema.define(version: 20170927121847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,10 @@ ActiveRecord::Schema.define(version: 20170921062852) do
     t.datetime "updated_at"
   end
 
+  add_index "cases", ["lat"], name: "index_cases_on_lat", using: :btree
+  add_index "cases", ["lng"], name: "index_cases_on_lng", using: :btree
   add_index "cases", ["opened_at"], name: "index_cases_on_opened_at", using: :btree
+  add_index "cases", ["service"], name: "index_cases_on_service", using: :btree
+  add_index "cases", ["status"], name: "index_cases_on_status", using: :btree
 
 end
